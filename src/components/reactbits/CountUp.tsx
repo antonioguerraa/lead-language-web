@@ -1,15 +1,12 @@
-import { useEffect, useRef, useState } from "react";
-import { useInView, animate } from "motion/react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 interface CountUpProps {
   to: number;
   from?: number;
   duration?: number;
   className?: string;
-  startWhen?: boolean;
   separator?: string;
   suffix?: string;
-  onEnd?: () => void;
 }
 
 export default function CountUp({
@@ -17,42 +14,62 @@ export default function CountUp({
   from = 0,
   duration = 2,
   className = "",
-  startWhen = true,
   separator = "",
   suffix = "",
-  onEnd,
 }: CountUpProps) {
-  const nodeRef = useRef<HTMLSpanElement>(null);
-  const inViewRef = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(inViewRef, { once: true, margin: "-50px" });
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+  const [display, setDisplay] = useState(`${from}${suffix}`);
+  const hasAnimated = useRef(false);
+
+  const formatNumber = useCallback(
+    (value: number) => {
+      let formatted = Math.round(value).toString();
+      if (separator) {
+        formatted = formatted.replace(/\B(?=(\d{3})+(?!\d))/g, separator);
+      }
+      return formatted + suffix;
+    },
+    [separator, suffix]
+  );
 
   useEffect(() => {
-    if (!isInView || !startWhen || hasAnimated) return;
+    const el = ref.current;
+    if (!el) return;
 
-    setHasAnimated(true);
-    const node = nodeRef.current;
-    if (!node) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
 
-    const controls = animate(from, to, {
-      duration,
-      ease: "easeOut",
-      onUpdate(value) {
-        let formatted = Math.round(value).toString();
-        if (separator) {
-          formatted = formatted.replace(/\B(?=(\d{3})+(?!\d))/g, separator);
+          const startTime = performance.now();
+          const durationMs = duration * 1000;
+
+          const step = (now: number) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / durationMs, 1);
+            // easeOutCubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = from + (to - from) * eased;
+            setDisplay(formatNumber(current));
+
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            }
+          };
+
+          requestAnimationFrame(step);
         }
-        node.textContent = formatted + suffix;
       },
-      onComplete: onEnd,
-    });
+      { threshold: 0.1 }
+    );
 
-    return () => controls.stop();
-  }, [isInView, startWhen, from, to, duration, separator, suffix, hasAnimated, onEnd]);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [from, to, duration, formatNumber]);
 
   return (
-    <span ref={inViewRef} className={className}>
-      <span ref={nodeRef}>{from}{suffix}</span>
+    <span ref={ref} className={className}>
+      {display}
     </span>
   );
 }
