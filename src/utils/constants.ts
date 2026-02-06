@@ -1,4 +1,4 @@
-export const LOGO_URL = "/logo.avif";
+export const LOGO_URL = "/logo.png";
 
 export const CONTACT_EMAIL = "leadlanguage23@gmail.com";
 export const INSTAGRAM_URL = "https://www.instagram.com/lead_language";

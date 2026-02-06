@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <img src={LOGO_URL} alt="Lead Language" className="mb-4 h-10 w-auto sm:h-12" />
+            <img src={LOGO_URL} alt="Lead Language" className="mb-4 h-14 w-auto sm:h-16" />
             <p className="text-sm text-text-secondary">{footerContent.tagline}</p>
           </div>
 
