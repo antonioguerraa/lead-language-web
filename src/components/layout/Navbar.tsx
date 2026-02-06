@@ -20,7 +20,7 @@ export default function Navbar() {
           <img
             src={LOGO_URL}
             alt="Lead Language"
-            className="h-14 w-auto sm:h-16"
+            className="h-20 w-auto sm:h-24"
           />
         </a>
 
