@@ -11,8 +11,8 @@ export default function ChatMessage({ role, text }: ChatMessageProps) {
       <div
         className={`max-w-[80%] rounded-xl px-4 py-2.5 text-sm whitespace-pre-wrap break-words ${
           isUser
-            ? "bg-primary/20 border border-primary/30 text-text-primary"
-            : "bg-white/5 border border-white/10 text-text-primary"
+            ? "bg-primary/25 border border-primary/40 text-text-primary"
+            : "bg-white/10 border border-white/15 text-text-primary"
         }`}
       >
         {text}

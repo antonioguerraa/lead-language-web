@@ -23,6 +23,7 @@ function TypingIndicator() {
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -33,6 +34,17 @@ export default function ChatBot() {
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
   if (!apiKey) return null;
+
+  useEffect(() => {
+    const hero = document.getElementById("hero");
+    if (!hero) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setPastHero(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
 
   function getChat() {
     if (!chatRef.current) {
@@ -103,10 +115,14 @@ export default function ChatBot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-22 right-4 z-50 flex h-[70vh] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-white/10 bg-navy/95 shadow-2xl backdrop-blur-md sm:h-[500px] sm:w-[360px]"
+            className={`fixed z-50 flex flex-col overflow-hidden rounded-2xl border border-primary/20 bg-[#161640]/98 shadow-2xl shadow-primary/10 backdrop-blur-md sm:h-[500px] sm:w-[360px] ${
+              pastHero
+                ? "bottom-16 left-4 right-4 h-[70vh] sm:left-auto sm:right-4"
+                : "bottom-22 right-4 h-[70vh] w-[calc(100vw-2rem)]"
+            }`}
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-white/10 bg-navy-light px-4 py-3">
+            <div className="flex items-center justify-between border-b border-primary/20 bg-primary/10 px-4 py-3">
               <div className="flex items-center gap-2">
                 <MessageCircle className="h-5 w-5 text-primary" />
                 <span className="font-semibold text-text-primary">
@@ -133,7 +149,7 @@ export default function ChatBot() {
             {/* Input */}
             <form
               onSubmit={handleSend}
-              className="flex items-center gap-2 border-t border-white/10 p-3"
+              className="flex items-center gap-2 border-t border-primary/20 bg-white/[0.03] p-3"
             >
               <input
                 ref={inputRef}
@@ -142,7 +158,7 @@ export default function ChatBot() {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Escribe tu pregunta..."
                 disabled={isLoading}
-                className="min-w-0 flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-text-muted backdrop-blur-sm outline-none transition-colors focus:border-primary disabled:opacity-50"
+                className="min-w-0 flex-1 rounded-xl border border-white/15 bg-white/10 px-4 py-2.5 text-sm text-white placeholder-text-muted backdrop-blur-sm outline-none transition-colors focus:border-primary disabled:opacity-50"
               />
               <button
                 type="submit"
@@ -156,17 +172,37 @@ export default function ChatBot() {
         )}
       </AnimatePresence>
 
-      {/* Floating button */}
-      <button
-        onClick={() => setIsOpen((prev) => !prev)}
-        className="fixed bottom-4 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary shadow-lg shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-light hover:shadow-primary/40"
-      >
-        {isOpen ? (
-          <X className="h-6 w-6 text-white" />
+      {/* Floating trigger */}
+      <AnimatePresence mode="wait">
+        {isOpen ? null : pastHero ? (
+          <motion.button
+            key="bar"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setIsOpen(true)}
+            className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-center gap-3 bg-primary/95 px-6 py-4 shadow-lg shadow-primary/25 backdrop-blur-sm transition-colors hover:bg-primary"
+          >
+            <MessageCircle className="h-5 w-5 text-white" />
+            <span className="text-sm font-semibold text-white sm:text-base">
+              Prueba el chat de Lead Language
+            </span>
+          </motion.button>
         ) : (
-          <MessageCircle className="h-6 w-6 text-white" />
+          <motion.button
+            key="bubble"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setIsOpen(true)}
+            className="fixed bottom-4 right-4 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-lg shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-light hover:shadow-primary/40"
+          >
+            <MessageCircle className="h-7 w-7 text-white" />
+          </motion.button>
         )}
-      </button>
+      </AnimatePresence>
     </>
   );
 }
