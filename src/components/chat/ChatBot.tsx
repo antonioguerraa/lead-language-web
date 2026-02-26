@@ -38,7 +38,7 @@ export default function ChatBot() {
     if (!chatRef.current) {
       const ai = new GoogleGenAI({ apiKey });
       chatRef.current = ai.chats.create({
-        model: "gemini-2.0-flash",
+        model: "gemini-3-flash-preview",
         config: {
           systemInstruction: CHATBOT_SYSTEM_PROMPT,
         },
