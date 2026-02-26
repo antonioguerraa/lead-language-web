@@ -9,6 +9,7 @@ import Testimonials from "./components/sections/Testimonials";
 import WhoIsFor from "./components/sections/WhoIsFor";
 import FAQ from "./components/sections/FAQ";
 import FinalCTA from "./components/sections/FinalCTA";
+import ChatBot from "./components/chat/ChatBot";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
       <FAQ />
       <FinalCTA />
       <Footer />
+      <ChatBot />
     </div>
   );
 }
