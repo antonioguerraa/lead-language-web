@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import BlurText from "../reactbits/BlurText";
 import FadeContent from "../reactbits/FadeContent";
 import Button from "../ui/Button";
@@ -33,9 +34,12 @@ export default function Hero() {
 
         <FadeContent duration={0.6} delay={1.2}>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button href="#final-cta" variant="primary">
+            <Link
+              to="/simulador"
+              className="inline-flex items-center justify-center rounded-xl px-6 py-3.5 text-sm font-semibold transition-all duration-300 cursor-pointer sm:px-8 sm:py-4 sm:text-base bg-accent text-white hover:bg-accent-hover shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:-translate-y-0.5"
+            >
               {heroContent.ctaPrimary}
-            </Button>
+            </Link>
             <Button href="#como-funciona" variant="secondary">
               {heroContent.ctaSecondary}
             </Button>

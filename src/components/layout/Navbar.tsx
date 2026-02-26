@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useScrollPosition } from "../../hooks/useScrollPosition";
 import { LOGO_URL, NAV_LINKS } from "../../utils/constants";
@@ -35,12 +36,12 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#final-cta"
+          <Link
+            to="/simulador"
             className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
           >
             Empezar
-          </a>
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -67,13 +68,13 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#final-cta"
+            <Link
+              to="/simulador"
               onClick={() => setMobileOpen(false)}
               className="mt-2 rounded-lg bg-accent px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
             >
               Empezar
-            </a>
+            </Link>
           </div>
         </div>
       )}

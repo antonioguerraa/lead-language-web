@@ -1,8 +1,8 @@
 export const heroContent = {
   headline: "Llena las aulas de tu academia con alumnos cada mes",
   subheadline:
-    "Un sistema probado de captación que genera solicitudes reales de alumnos interesados en aprender idiomas — sin depender del boca a boca",
-  ctaPrimary: "Solicitar Test Gratuito de 14 Días",
+    "Analiza tu academia en 60 segundos y descubre exactamente cómo captaríamos alumnos para ti",
+  ctaPrimary: "Analizar mi academia gratis",
   ctaSecondary: "Ver cómo funciona",
 };
 
@@ -63,8 +63,8 @@ export const howItWorksContent = {
 };
 
 export const offerContent = {
-  headline: "Empieza con un Test de 14 Días",
-  subheadline: "Todo lo que necesitas para probar el sistema — sin riesgo",
+  headline: "¿Cómo sería tu estrategia de captación?",
+  subheadline: "Analiza tu academia gratis y descubre el plan que diseñaríamos para ti",
   valueStack: [
     {
       item: "Landing page optimizada para tu academia",
@@ -84,9 +84,9 @@ export const offerContent = {
     },
   ],
   totalValue: "1.150€",
-  actualPrice: "GRATIS durante 14 días",
-  riskReversal: "Sin contratos. Sin permanencia. Cancela cuando quieras.",
-  ctaButton: "Solicitar Test Gratuito de 14 Días",
+  actualPrice: "Análisis gratuito en 60 segundos",
+  riskReversal: "Sin compromiso. Solo necesitas la URL de tu web.",
+  ctaButton: "Analizar mi academia gratis",
 };
 
 export const resultsContent = {
@@ -186,10 +186,8 @@ export const faqContent = {
 export const finalCtaContent = {
   headline: "¿Listo para llenar tus clases?",
   subheadline:
-    "Déjanos tu email y contactamos contigo hoy mismo para empezar el test gratuito de 14 días.",
-  emailPlaceholder: "Tu correo electrónico",
-  submitButton: "Quiero el Test Gratuito",
-  confirmationText: "Contactamos contigo hoy mismo",
+    "Analiza tu academia y descubre la estrategia personalizada que diseñaríamos para captar alumnos cada mes.",
+  ctaButton: "Analizar mi academia gratis",
 };
 
 export const footerContent = {

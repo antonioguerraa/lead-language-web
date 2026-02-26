@@ -1,0 +1,25 @@
+{
+  "name": "lead-language-server",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node --import tsx src/index.ts"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5",
+    "@google/genai": "^1.43.0",
+    "cheerio": "^1.0.0",
+    "better-sqlite3": "^11.9.1",
+    "nodemailer": "^6.10.1",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.4",
+    "@types/express": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/better-sqlite3": "^7.6.0",
+    "@types/nodemailer": "^6.4.17"
+  }
+}

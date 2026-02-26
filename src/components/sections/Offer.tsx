@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom";
 import { CheckCircle } from "lucide-react";
 import SectionWrapper from "../layout/SectionWrapper";
 import SplitText from "../reactbits/SplitText";
 import AnimatedContent from "../reactbits/AnimatedContent";
 import FadeContent from "../reactbits/FadeContent";
-import Button from "../ui/Button";
 import { offerContent } from "../../data/content";
 
 export default function Offer() {
@@ -69,9 +69,12 @@ export default function Offer() {
 
           {/* CTA */}
           <div className="text-center">
-            <Button href="#final-cta" variant="primary" className="w-full sm:w-auto">
+            <Link
+              to="/simulador"
+              className="inline-flex items-center justify-center rounded-xl px-6 py-3.5 text-sm font-semibold transition-all duration-300 cursor-pointer sm:px-8 sm:py-4 sm:text-base bg-accent text-white hover:bg-accent-hover shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:-translate-y-0.5 w-full sm:w-auto"
+            >
               {offerContent.ctaButton}
-            </Button>
+            </Link>
           </div>
         </div>
       </AnimatedContent>
