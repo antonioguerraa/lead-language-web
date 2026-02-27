@@ -14,9 +14,12 @@ export default function UrlInputPage({ onSubmit, error }: UrlInputPageProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (url.trim()) {
-      onSubmit(url.trim());
+    let trimmed = url.trim();
+    if (!trimmed) return;
+    if (!/^https?:\/\//i.test(trimmed)) {
+      trimmed = `https://${trimmed}`;
     }
+    onSubmit(trimmed);
   };
 
   return (
@@ -38,7 +41,7 @@ export default function UrlInputPage({ onSubmit, error }: UrlInputPageProps) {
         className="w-full max-w-lg flex flex-col gap-4"
       >
         <GlassInput
-          type="url"
+          type="text"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder={urlInput.placeholder}
