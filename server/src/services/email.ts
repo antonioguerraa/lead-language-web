@@ -8,6 +8,8 @@ function getFromAddress() {
   return process.env.SMTP_FROM || "hola@leadlanguage.eu";
 }
 
+const LOGO_URL = "https://lead-language-web.onrender.com/logo.png";
+
 async function sendEmail(to: string, subject: string, html: string) {
   const apiKey = getApiKey();
   if (!apiKey) {
@@ -58,7 +60,11 @@ export async function sendLeadNotification(lead: {
     notifyEmail,
     `Nuevo lead: ${lead.academy_name} — ${lead.name}`,
     `
-      <h2>Nuevo lead desde el simulador de funnel</h2>
+      <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
+        <div style="text-align:center;padding:24px 0;">
+          <img src="${LOGO_URL}" alt="Lead Language" width="180" style="display:inline-block;" />
+        </div>
+        <h2 style="margin:0 0 16px;">Nuevo lead desde el simulador de funnel</h2>
       <table style="border-collapse:collapse;font-family:sans-serif;">
         <tr><td style="padding:8px;font-weight:bold;">Nombre:</td><td style="padding:8px;">${lead.name}</td></tr>
         <tr><td style="padding:8px;font-weight:bold;">Email:</td><td style="padding:8px;">${lead.email}</td></tr>
@@ -69,6 +75,7 @@ export async function sendLeadNotification(lead: {
       </table>
       <br>
       <p><a href="https://leadlanguage.eu/admin">Ver en el panel de administración</a></p>
+      </div>
     `
   );
 }
@@ -90,8 +97,8 @@ export async function sendLeadConfirmation(lead: {
                 <!-- Header -->
                 <tr>
                   <td style="background:linear-gradient(135deg,#0a0a1a 0%,#1e1b4b 100%);padding:32px 40px;text-align:center;">
-                    <h1 style="margin:0;color:#ffffff;font-size:24px;font-weight:700;letter-spacing:-0.5px;">Lead Language</h1>
-                    <p style="margin:6px 0 0;color:#a5b4fc;font-size:13px;">Marketing digital para academias de idiomas</p>
+                    <img src="${LOGO_URL}" alt="Lead Language" width="180" style="display:inline-block;margin-bottom:12px;" />
+                    <p style="margin:0;color:#a5b4fc;font-size:13px;">Marketing digital para academias de idiomas</p>
                   </td>
                 </tr>
                 <!-- Body -->
@@ -124,7 +131,8 @@ export async function sendLeadConfirmation(lead: {
                 <!-- Footer -->
                 <tr>
                   <td style="background-color:#f9fafb;border-top:1px solid #e5e7eb;padding:24px 40px;text-align:center;">
-                    <p style="margin:0 0 4px;color:#9ca3af;font-size:12px;">Lead Language &mdash; Marketing para academias de idiomas</p>
+                    <img src="${LOGO_URL}" alt="Lead Language" width="120" style="display:inline-block;margin-bottom:8px;opacity:0.6;" />
+                    <p style="margin:0 0 4px;color:#9ca3af;font-size:12px;">Marketing para academias de idiomas</p>
                     <p style="margin:0;color:#d1d5db;font-size:11px;">leadlanguage.eu</p>
                   </td>
                 </tr>
