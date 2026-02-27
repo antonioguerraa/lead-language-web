@@ -1,5 +1,8 @@
 import { motion } from "motion/react";
+import { Calendar } from "lucide-react";
 import { funnelContent } from "../../data/funnel-content";
+
+const CALENDLY_URL = "https://calendly.com/leadlanguage";
 
 interface FunnelConfirmationProps {
   onReset: () => void;
@@ -25,9 +28,31 @@ export default function FunnelConfirmation({ onReset }: FunnelConfirmationProps)
       <p className="text-text-secondary text-lg mb-3 max-w-md">
         {confirmation.message}
       </p>
-      <p className="text-text-muted text-sm mb-10 max-w-md">
+      <p className="text-text-muted text-sm mb-8 max-w-md">
         {confirmation.subtext}
       </p>
+
+      <div className="flex flex-col items-center gap-4 mb-6">
+        <p className="text-text-secondary text-sm font-medium">
+          Habla con nosotros directamente
+        </p>
+        <a
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+            inline-flex items-center gap-2
+            px-8 py-3.5 rounded-xl font-semibold
+            bg-accent text-white
+            hover:bg-accent-hover hover:-translate-y-0.5
+            shadow-lg shadow-accent/25 hover:shadow-accent/40
+            transition-all duration-300
+          "
+        >
+          <Calendar className="h-5 w-5" />
+          Agendar una llamada
+        </a>
+      </div>
 
       <button
         onClick={onReset}
