@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build && cd server && npm install",
     "start": "cd server && node --import tsx src/index.ts",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "render:build": "npm install --include=dev && npm run build"
   },
   "dependencies": {
     "@google/genai": "^1.43.0",
