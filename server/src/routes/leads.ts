@@ -1,7 +1,7 @@
 import { Router } from "express";
 import db from "../db.js";
 import { basicAuth } from "./auth.js";
-import { sendLeadNotification } from "../services/email.js";
+import { sendLeadNotification, sendLeadConfirmation } from "../services/email.js";
 import type { CreateLeadBody, UpdateLeadBody, Lead } from "../types.js";
 
 const router = Router();
@@ -32,15 +32,17 @@ router.post("/", async (req, res) => {
       body.funnel_data || "{}"
     );
 
-    // Send email notification (non-blocking)
-    sendLeadNotification({
+    // Send emails (non-blocking)
+    const lead = {
       name: body.name,
       email: body.email,
       phone: body.phone || "",
       academy_name: body.academy_name || "",
       academy_url: body.academy_url || "",
       academy_location: body.academy_location || "",
-    }).catch((err) => console.error("[Email] Failed:", err));
+    };
+    sendLeadNotification(lead).catch((err) => console.error("[Email] Admin notification failed:", err));
+    sendLeadConfirmation(lead).catch((err) => console.error("[Email] Lead confirmation failed:", err));
 
     res.status(201).json({ id: result.lastInsertRowid, status: "ok" });
   } catch (error) {
