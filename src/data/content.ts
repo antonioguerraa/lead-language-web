@@ -1,7 +1,7 @@
 export const heroContent = {
   headline: "Llena las aulas de tu academia con alumnos cada mes",
   subheadline:
-    "Analiza tu academia en 60 segundos y descubre exactamente cómo captaríamos alumnos para ti",
+    "Descubre como hemos ayudado a escalar a 10+ academias y analiza la tuya en 60 segundos",
   ctaPrimary: "Analizar mi academia gratis",
   ctaSecondary: "Ver cómo funciona",
 };
