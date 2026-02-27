@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Play, Pause } from "lucide-react";
 import BlurText from "../reactbits/BlurText";
 import FadeContent from "../reactbits/FadeContent";
-import Button from "../ui/Button";
 import { heroContent } from "../../data/content";
 
 export default function Hero() {
@@ -93,9 +92,6 @@ export default function Hero() {
             >
               {heroContent.ctaPrimary}
             </Link>
-            <Button href="#como-funciona" variant="secondary">
-              {heroContent.ctaSecondary}
-            </Button>
           </div>
         </FadeContent>
       </div>
