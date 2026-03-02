@@ -1,8 +1,12 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import { useScrollPosition } from "../../hooks/useScrollPosition";
-import { LOGO_URL } from "../../utils/constants";
+import { LOGO_URL, NAV_LINKS } from "../../utils/constants";
 
 export default function Navbar() {
   const scrolled = useScrollPosition(50);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <nav
@@ -21,7 +25,59 @@ export default function Navbar() {
           />
         </a>
 
+        {/* Desktop links */}
+        <div className="hidden items-center gap-8 md:flex">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium text-text-secondary transition-colors hover:text-white"
+            >
+              {link.label}
+            </a>
+          ))}
+          <Link
+            to="/simulador"
+            className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
+          >
+            Empezar
+          </Link>
+        </div>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="text-white md:hidden"
+          aria-label="Menu"
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="border-t border-white/10 bg-navy/95 backdrop-blur-md md:hidden">
+          <div className="flex flex-col gap-4 px-4 py-6">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="text-base font-medium text-text-secondary transition-colors hover:text-white"
+              >
+                {link.label}
+              </a>
+            ))}
+            <Link
+              to="/simulador"
+              onClick={() => setMobileOpen(false)}
+              className="mt-2 rounded-lg bg-accent px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
+            >
+              Empezar
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
