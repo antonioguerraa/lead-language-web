@@ -21,7 +21,7 @@ export default function Results() {
         </p>
       </div>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-8 sm:grid-cols-3">
         {resultsContent.stats.map((stat, i) => (
           <div key={i} className="text-center">
             <div className="mb-2 flex items-baseline justify-center gap-1">

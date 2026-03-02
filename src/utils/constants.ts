@@ -8,6 +8,6 @@ export const NAV_LINKS = [
   { label: "Inicio", href: "#hero" },
   { label: "Cómo funciona", href: "#como-funciona" },
   { label: "La oferta", href: "#oferta" },
-  { label: "Resultados", href: "#resultados" },
+  { label: "Colaboración", href: "#colaboracion" },
   { label: "FAQ", href: "#faq" },
 ];

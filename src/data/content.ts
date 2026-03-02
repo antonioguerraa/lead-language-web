@@ -1,8 +1,8 @@
 export const heroContent = {
-  headline: "Llena las aulas de tu academia con alumnos cada mes",
+  headline: "Convierte tu academia en una máquina predecible de nuevos alumnos",
   subheadline:
-    "Descubre como hemos ayudado a escalar a 10+ academias y analiza la tuya en 60 segundos",
-  ctaPrimary: "Analizar mi academia gratis",
+    "Construimos y optimizamos durante 3 meses un sistema medible que te permite saber cuánto cuesta cada alumno y cómo escalar de forma rentable.",
+  ctaPrimary: "Quiero analizar mi academia",
   ctaSecondary: "Ver cómo funciona",
 };
 
@@ -35,29 +35,41 @@ export const problemContent = {
 };
 
 export const howItWorksContent = {
-  headline: "Cómo conseguimos nuevos alumnos",
-  subheadline: "Un proceso simple de 3 pasos que funciona desde la primera semana",
+  headline: "Cómo hacemos crecer tu academia",
+  subheadline: "Un sistema estructurado en 3 fases, orientado a resultados medibles",
   steps: [
     {
       number: 1,
-      title: "Atraemos interesados",
-      description:
-        "Creamos anuncios segmentados que llegan a personas de tu zona interesadas en aprender idiomas. Les mostramos una oferta clara para que pidan información.",
       icon: "target" as const,
+      title: "Estrategia basada en psicología del alumno",
+      description:
+        "Identificamos el perfil exacto de tu alumno ideal y el problema que realmente le preocupa. Creamos campañas enfocadas en esa necesidad concreta para atraer solicitudes de calidad, no simples clics.",
+      bullets: [] as string[],
     },
     {
       number: 2,
-      title: "Recibes contactos directos",
+      icon: "settings" as const,
+      title: "Sistema estructurado de captación durante 3 meses",
       description:
-        "Las solicitudes llegan a tu bandeja de entrada. Nombre, email, teléfono. Personas reales que quieren aprender en tu academia.",
-      icon: "mail" as const,
+        "Implementamos una estrategia avanzada de Meta Ads. Durante tres meses no probamos al azar: construimos un sistema sólido.",
+      bullets: [
+        "Segmentación local precisa",
+        "Optimización continua del embudo",
+        "Ajuste de mensajes y audiencias",
+        "Análisis constante de métricas reales",
+      ],
     },
     {
       number: 3,
-      title: "Medimos y optimizamos",
+      icon: "trending-up" as const,
+      title: "Escalado estratégico y rentable",
       description:
-        "Cada euro invertido se mide. Sabrás exactamente cuántas solicitudes recibes, cuánto cuesta cada una, y cómo mejorar.",
-      icon: "bar-chart-3" as const,
+        "Una vez validamos los KPIs clave, escalamos la inversión únicamente si los números son rentables. No crecemos por intuición. Crecemos por datos.",
+      bullets: [
+        "Coste por lead",
+        "Tasa de conversión",
+        "Coste real por alumno",
+      ],
     },
   ],
 };
@@ -90,14 +102,24 @@ export const offerContent = {
 };
 
 export const resultsContent = {
-  headline: "Datos reales, NO PROMESAS",
-  subheadline: "En 14 días tendrás resultados medibles desde el primer día",
+  headline: "Crecimiento medible en 90 días",
+  subheadline:
+    "En tres meses establecemos métricas claras que permiten calcular el retorno real de cada euro invertido.",
   stats: [
-    { number: 47, suffix: "+", label: "Academias atendidas" },
-    { number: 14, suffix: "", label: "Días para ver resultados" },
-    { number: 96, suffix: "%", label: "Clientes satisfechos" },
+    { number: 3, suffix: "", label: "Meses para validar y escalar" },
+    { number: 96, suffix: "%", label: "Academias satisfechas" },
     { number: 5, suffix: "x", label: "Retorno sobre inversión" },
   ],
+};
+
+export const colaboracionContent = {
+  headline: "Crecemos contigo",
+  intro: "Durante los primeros 3 meses trabajamos como socios estratégicos.",
+  model:
+    "Nuestra remuneración está alineada con tus resultados: percibimos un 20% de las ganancias generadas por los alumnos captados a través del sistema.",
+  conclusion: "Esto significa que solo crecemos si tú creces.",
+  postPeriod:
+    "Tras este periodo inicial, revisamos métricas y acordamos la siguiente fase de expansión.",
 };
 
 export const testimonialsContent = {
@@ -151,34 +173,24 @@ export const faqContent = {
   headline: "Preguntas frecuentes",
   questions: [
     {
-      question: "¿Necesito invertir en anuncios?",
+      question: "¿Por qué trabajáis sobre porcentaje?",
       answer:
-        "Sí, el sistema usa publicidad online para atraer a personas interesadas en aprender idiomas en tu zona. Nosotros creamos y gestionamos las campañas, tú decides el presupuesto. Lo habitual son entre 5€ y 15€ al día.",
+        "Porque creemos en el sistema. Si tu academia no genera ingresos, nosotros tampoco. Nuestro modelo está alineado con tu crecimiento.",
     },
     {
-      question: "¿Hay permanencia o compromiso?",
+      question: "¿Necesito invertir en publicidad?",
       answer:
-        "No. Empiezas con un test gratuito de 14 días. Si no ves resultados que te convenzan, cancelas sin coste. Sin contratos, sin letra pequeña.",
+        "Sí. La inversión publicitaria es independiente y totalmente controlada por ti. Nosotros gestionamos y optimizamos para maximizar la rentabilidad.",
     },
     {
-      question: "¿Funciona para academias pequeñas?",
+      question: "¿Hay permanencia?",
       answer:
-        "Especialmente. Las academias locales que necesitan llenar grupos son las que más se benefician. No necesitas ser una gran franquicia.",
+        "El sistema necesita 3 meses para construirse y optimizarse correctamente. Después puedes decidir continuar, escalar o detener el servicio sin penalizaciones.",
     },
     {
       question: "¿Cuándo empiezo a ver resultados?",
       answer:
-        "Durante los primeros 14 días del test ya puedes recibir solicitudes reales. La mayoría de clientes ven sus primeros contactos en la primera semana.",
-    },
-    {
-      question: "¿Qué recibo exactamente durante el test?",
-      answer:
-        "Una landing page optimizada, una campaña de publicidad en marcha, solicitudes reales de alumnos potenciales, y un informe con todos los datos medidos.",
-    },
-    {
-      question: "¿Puedo cancelar en cualquier momento?",
-      answer:
-        "Sí, puedes cancelar cuando quieras. No hay contratos ni permanencia. Creemos que los resultados hablan por sí solos.",
+        "La mayoría de academias comienzan a recibir solicitudes durante los primeros 60 días. El tercer mes se centra en optimización y escalabilidad.",
     },
   ],
 };

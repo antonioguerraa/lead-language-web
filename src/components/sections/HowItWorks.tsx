@@ -1,4 +1,4 @@
-import { Target, Mail, BarChart3 } from "lucide-react";
+import { Target, Settings, TrendingUp } from "lucide-react";
 import SectionWrapper from "../layout/SectionWrapper";
 import SplitText from "../reactbits/SplitText";
 import AnimatedContent from "../reactbits/AnimatedContent";
@@ -6,8 +6,8 @@ import { howItWorksContent } from "../../data/content";
 
 const iconMap = {
   target: Target,
-  mail: Mail,
-  "bar-chart-3": BarChart3,
+  settings: Settings,
+  "trending-up": TrendingUp,
 };
 
 export default function HowItWorks() {
@@ -55,6 +55,16 @@ export default function HowItWorks() {
                     <p className="text-text-secondary leading-relaxed">
                       {step.description}
                     </p>
+                    {step.bullets.length > 0 && (
+                      <ul className="mt-3 space-y-1.5">
+                        {step.bullets.map((bullet, j) => (
+                          <li key={j} className="flex items-center gap-2 text-sm text-text-secondary">
+                            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary-light" />
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </div>
               </AnimatedContent>

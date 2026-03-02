@@ -5,6 +5,7 @@ import Problem from "../components/sections/Problem";
 import HowItWorks from "../components/sections/HowItWorks";
 import Offer from "../components/sections/Offer";
 import Results from "../components/sections/Results";
+import Colaboracion from "../components/sections/Colaboracion";
 import Testimonials from "../components/sections/Testimonials";
 import WhoIsFor from "../components/sections/WhoIsFor";
 import FAQ from "../components/sections/FAQ";
@@ -20,6 +21,7 @@ export default function LandingPage() {
       <HowItWorks />
       <Offer />
       <Results />
+      <Colaboracion />
       <Testimonials />
       <WhoIsFor />
       <FAQ />
