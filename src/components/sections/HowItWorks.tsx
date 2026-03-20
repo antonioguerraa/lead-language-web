@@ -52,7 +52,7 @@ export default function HowItWorks() {
                         {step.title}
                       </h3>
                     </div>
-                    <p className="text-text-secondary leading-relaxed">
+                    <p className="text-text-secondary leading-relaxed whitespace-pre-line">
                       {step.description}
                     </p>
                     {step.bullets.length > 0 && (
@@ -64,6 +64,11 @@ export default function HowItWorks() {
                           </li>
                         ))}
                       </ul>
+                    )}
+                    {"closingLine" in step && step.closingLine && (
+                      <p className="mt-4 text-text-secondary leading-relaxed">
+                        {step.closingLine}
+                      </p>
                     )}
                   </div>
                 </div>

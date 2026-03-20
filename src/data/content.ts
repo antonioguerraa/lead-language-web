@@ -1,7 +1,7 @@
 export const heroContent = {
-  headline: "Convierte tu academia en una máquina predecible de nuevos alumnos",
+  headline: "Llena tus aulas incluso en los meses de menor demanda",
   subheadline:
-    "Construimos y optimizamos durante 3 meses un sistema medible que te permite saber cuánto cuesta cada alumno y cómo escalar de forma rentable.",
+    "Descubre el sistema que utilizamos para atraer alumnos de forma constante y analiza el potencial real de tu academia en minutos.",
   ctaPrimary: "Quiero analizar mi academia",
   ctaSecondary: "Ver cómo funciona",
 };
@@ -36,40 +36,42 @@ export const problemContent = {
 
 export const howItWorksContent = {
   headline: "Cómo hacemos crecer tu academia",
-  subheadline: "Un sistema estructurado en 3 fases, orientado a resultados medibles",
+  subheadline: "Un sistema estructurado en 3 fases para generar alumnos de forma predecible.",
   steps: [
     {
       number: 1,
       icon: "target" as const,
-      title: "Estrategia basada en psicología del alumno",
+      title: "Definimos el alumno ideal y su punto de dolor",
       description:
-        "Identificamos el perfil exacto de tu alumno ideal y el problema que realmente le preocupa. Creamos campañas enfocadas en esa necesidad concreta para atraer solicitudes de calidad, no simples clics.",
+        "Analizamos quién es realmente tu avatar y qué problema quiere resolver (mejorar notas, aprobar exámenes o avanzar profesionalmente).\n\nProbamos distintos hooks y mensajes en anuncios para identificar qué conecta mejor con tu audiencia. A partir de los primeros datos y KPI's obtenidos entendemos qué tipo de mensaje genera más interés real.",
       bullets: [] as string[],
     },
     {
       number: 2,
       icon: "settings" as const,
-      title: "Sistema estructurado de captación durante 3 meses",
+      title: "Estrategia de Meta Ads basada en datos",
       description:
-        "Implementamos una estrategia avanzada de Meta Ads. Durante tres meses no probamos al azar: construimos un sistema sólido.",
+        "Con la información obtenida en la primera fase desarrollamos una estrategia de Meta Ads totalmente adaptada a tu academia.\nDurante tres meses optimizamos constantemente las campañas para mejorar resultados:",
       bullets: [
         "Segmentación local precisa",
-        "Optimización continua del embudo",
-        "Ajuste de mensajes y audiencias",
-        "Análisis constante de métricas reales",
+        "Ajuste de mensajes y anuncios",
+        "Optimización del embudo de captación",
+        "Análisis continuo de métricas",
       ],
+      closingLine: "El objetivo es construir un sistema sólido de captación de alumnos.",
     },
     {
       number: 3,
       icon: "trending-up" as const,
-      title: "Escalado estratégico y rentable",
+      title: "Escalamos lo que funciona",
       description:
-        "Una vez validamos los KPIs clave, escalamos la inversión únicamente si los números son rentables. No crecemos por intuición. Crecemos por datos.",
+        "Una vez identificamos qué campañas generan mejores resultados, utilizamos esos datos para escalar la estrategia.\n\nAnalizamos los principales KPI's como:",
       bullets: [
         "Coste por lead",
         "Tasa de conversión",
         "Coste real por alumno",
       ],
+      closingLine: "A partir de ahí aumentamos la inversión de forma estratégica para crecer de manera rentable y sostenible.",
     },
   ],
 };
@@ -130,19 +132,19 @@ export const testimonialsContent = {
       quote:
         "En menos de dos semanas empezamos a recibir solicitudes reales de alumnos. Ahora sabemos exactamente cuántas personas están interesadas y podemos organizarnos mejor.",
       author: "María G.",
-      role: "Directora — Academia de Inglés, Valencia",
+      role: "Profesora particular — Valencia",
     },
     {
       quote:
         "Llevábamos meses publicando en Instagram sin saber si servía de algo. Con Lead Language, en 10 días tuvimos 23 solicitudes con nombre y teléfono. Dato real.",
       author: "Carlos R.",
-      role: "Fundador — Escuela de Francés, Madrid",
+      role: "Fundador — Academia de idiomas, Huelva",
     },
     {
       quote:
         "Lo mejor es que puedo ver exactamente cuánto cuesta cada alumno nuevo. Ahora tomo decisiones con datos, no con intuición.",
       author: "Laura M.",
-      role: "Directora — Centro de Idiomas, Sevilla",
+      role: "Profesora — Academia de idiomas, Valencia",
     },
   ],
 };
